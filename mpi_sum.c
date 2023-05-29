@@ -37,6 +37,7 @@ int main(int argc, char* argv[])
     {
         int k[5];
         MPI_Recv(k,5,MPI_INT,0,1,MPI_COMM_WORLD,MPI_STATUS_IGNORE);
+        
         int local_sum=0;
         for(int i=0; i<5;i++)
             local_sum+=k[i];
@@ -46,3 +47,6 @@ int main(int argc, char* argv[])
     MPI_Finalise();
     return 0;
 }
+
+//mpicc mpi_sum.c
+//mpirun -np 4 ./a.out
